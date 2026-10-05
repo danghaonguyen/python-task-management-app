@@ -1,0 +1,239 @@
+/* =========================
+   TASK CARD
+========================= */
+
+.task-card {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  min-height: 190px;
+
+  padding: 19px;
+
+  background: #ffffff;
+
+  border: 1px solid #dfe6ef;
+
+  border-radius: 13px;
+
+  box-shadow:
+    0 2px 5px rgba(15, 23, 42, 0.035);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.task-card:hover {
+  transform: translateY(-2px);
+
+  border-color: #cbd5e1;
+
+  box-shadow:
+    0 8px 18px rgba(15, 23, 42, 0.07);
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.task-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  gap: 12px;
+
+  margin-bottom: 9px;
+}
+
+.task-title {
+  margin: 0;
+
+  color: #0f172a;
+
+  font-size: 20px;
+  font-weight: 700;
+
+  line-height: 1.4;
+
+  word-break: break-word;
+}
+
+.task-icons {
+  display: flex;
+  align-items: center;
+
+  gap: 3px;
+
+  flex-shrink: 0;
+}
+
+.icon-button {
+  width: 29px;
+  height: 29px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 6px;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.edit-icon {
+  color: #64748b;
+}
+
+.edit-icon:hover {
+  background: #f1f5f9;
+
+  color: #334155;
+}
+
+.delete-icon {
+  color: #ef4444;
+}
+
+.delete-icon:hover {
+  background: #fee2e2;
+}
+
+
+/* =========================
+   DESCRIPTION
+========================= */
+
+.task-description {
+  margin: 0 0 16px;
+
+  color: #64748b;
+
+  font-size: 15px;
+
+  line-height: 1.55;
+}
+
+
+/* =========================
+   STATUS
+========================= */
+
+.task-status-row {
+  display: flex;
+
+  margin-bottom: 14px;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 5px 11px;
+
+  border-radius: 999px;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.status-badge.completed {
+  background: #dcfce7;
+
+  color: #15803d;
+}
+
+.status-badge.pending {
+  background: #fef3c7;
+
+  color: #b45309;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.task-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: auto;
+
+  padding-top: 13px;
+
+  border-top: 1px solid #e2e8f0;
+
+  color: #64748b;
+
+  font-size: 15px;
+}
+
+.task-due {
+  white-space: nowrap;
+}
+
+.status-button {
+  flex-shrink: 0;
+
+  border: none;
+
+  padding: 7px 12px;
+
+  border-radius: 7px;
+
+  background: #eef2ff;
+
+  color: #4f46e5;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.status-button:hover {
+  background: #e0e7ff;
+
+  color: #4338ca;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 500px) {
+  .task-card {
+  min-height: 205px;
+  padding: 22px;
+  }
+
+  .task-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .status-button {
+    width: 100%;
+  }
+}
