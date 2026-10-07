@@ -5,12 +5,18 @@ import { jwtDecode } from "jwt-decode";
 import "../css/auth/Login.css";
 
 import axiosAuth from "../../api/axiosAuth";
+import Toast from "../../components/Toast.jsx";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
+
+  const [toast, setToast] = useState({
+    message: "",
+    type: "success",
+  });
 
   useEffect(() => {
     const token = localStorage.getItem("access_token");
@@ -32,47 +38,67 @@ function Login() {
       localStorage.setItem("access_token", response.data.access_token);
 
       const decoded = jwtDecode(response.data.access_token);
-      
+
       localStorage.setItem("user_id", decoded.user_id);
 
-      console.log("Login thành công");
-      navigate("/tasks");
+      showToast("Đăng nhập thành công!", "success");
+
+      setTimeout(() => {
+        navigate("/tasks");
+      }, 1000);
     } catch (error) {
       console.log(error.response?.data);
+      showToast("Đăng nhập thất bại!", "error");
     }
+  };
+  const showToast = (message, type = "success") => {
+    setToast({ message, type });
+
+    setTimeout(() => {
+      setToast({
+        message: "",
+        type: "success",
+      });
+    }, 3000);
   };
 
   return (
-    <div className="login-page">
-      <div className="login-container">
-        <h1 className="login-title">Login</h1>
+    <>
+      <Toast message={toast.message} type={toast.type} />
+      <div className="login-page">
+        <div className="login-container">
+          <h1 className="login-title">Login</h1>
 
-        <form className="login-form" onSubmit={handleLogin}>
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
+          <form className="login-form" onSubmit={handleLogin}>
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
 
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
 
-          <button type="submit">Login</button>
+            <button type="submit">Login</button>
 
-          <p>
-            Chưa có tài khoản?{" "}
-            <span className="register-link" onClick={() => navigate("/register")}>
-              Register
-            </span>
-          </p>
-        </form>
+            <p>
+              Chưa có tài khoản?{" "}
+              <span
+                className="register-link"
+                onClick={() => navigate("/register")}
+              >
+                Register
+              </span>
+            </p>
+          </form>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
