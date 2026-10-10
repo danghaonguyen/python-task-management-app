@@ -13,8 +13,6 @@ function Tasks() {
   const [tasks, setTasks] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
 
-  const [users, setUsers] = useState([]);
-
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [dueAt, setDueAt] = useState("");
@@ -49,6 +47,8 @@ function Tasks() {
     }, 3000);
   };
 
+  const username = localStorage.getItem("username");
+
   // Logout
   const logout = () => {
     localStorage.removeItem("access_token");
@@ -68,20 +68,7 @@ function Tasks() {
       });
   }, []);
 
-  useEffect(() => {
-    axiosClient
-      .get("/users/")
-      .then((response) => {
-        setUsers(response.data);
-      })
-      .catch((error) => {
-        console.log(error.response?.data);
-      });
-  }, []);
-
-  const currentUserId = Number(localStorage.getItem("user_id"));
-
-  const currentUser = users.find((user) => user.id === currentUserId);
+  
 
   // Format datetime
   const formatDueAt = (value) => {
@@ -257,8 +244,6 @@ function Tasks() {
     }
   };
 
-  
-
   return (
     <>
       <Toast message={toast.message} type={toast.type} />
@@ -284,7 +269,7 @@ function Tasks() {
             <div className="user-avatar">U</div>
 
             <div className="user-info">
-              <strong>User: {currentUser?.username}</strong>
+              <strong>User: {username}</strong>
 
               <span>Task Manager</span>
             </div>

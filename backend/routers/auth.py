@@ -28,5 +28,7 @@ def login_user(user: schemas.Login, db: Session = Depends(get_db)):
     access_token = oauth2.create_access_token({"user_id": login_us.id})
 
     return {"access_token": access_token,
-            "token_type": "bearer"}
+            "token_type": "bearer",
+            "role": login_us.role,
+            "username": login_us.username}
 

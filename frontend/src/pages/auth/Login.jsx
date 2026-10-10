@@ -36,6 +36,8 @@ function Login() {
       });
 
       localStorage.setItem("access_token", response.data.access_token);
+      localStorage.setItem("role", response.data.role);
+      localStorage.setItem("username", response.data.username);
 
       const decoded = jwtDecode(response.data.access_token);
 
@@ -44,7 +46,11 @@ function Login() {
       showToast("Đăng nhập thành công!", "success");
 
       setTimeout(() => {
-        navigate("/tasks");
+        if (response.data.role === "admin") {
+          navigate("/admin/users");
+        } else {
+          navigate("/tasks");
+        }
       }, 1000);
     } catch (error) {
       console.log(error.response?.data);
