@@ -7,4 +7,5 @@ python_jose==3.5.0
 SQLAlchemy==2.1.4
 uvicorn==0.40.0
 psycopg2-binary==2.9.12
-email-validator
+email-validator==2.3.0
+bcrypt==4.0.1
