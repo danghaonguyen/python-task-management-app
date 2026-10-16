@@ -11,8 +11,9 @@ from backend.config import settings
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config
+# Run local
 # config.set_main_option("sqlalchemy.url", f'postgresql+psycopg2://{settings.database_username}:{settings.database_password}@{settings.database_hostname}:{settings.database_port}/{settings.database_name}')
-
+# Deploy Neon Database
 config.set_main_option(
     "sqlalchemy.url",
     settings.database_url.replace("%", "%%")
