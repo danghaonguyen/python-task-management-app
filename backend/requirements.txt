@@ -9,3 +9,4 @@ uvicorn==0.40.0
 psycopg2-binary==2.9.12
 email-validator==2.3.0
 bcrypt==4.0.1
+psycopg2==2.9.12
