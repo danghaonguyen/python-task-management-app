@@ -4,7 +4,7 @@ from sqlalchemy.orm import sessionmaker
 from .config import settings
 
 
-# SQLALCHEMY_DATABASE_URL = f"postgresql://{settings.database_username}:{settings.database_password}@{settings.database_hostname}:{settings.database_port}/{settings.database_name}"
+# SQLALCHEMY_DATABASE_URL = f"postgresql+pyscopg2://{settings.database_username}:{settings.database_password}@{settings.database_hostname}:{settings.database_port}/{settings.database_name}"
 
 SQLALCHEMY_DATABASE_URL = settings.database_url.replace(
     ""postgresql://", ""postgresql+pyscopg2://", 1
