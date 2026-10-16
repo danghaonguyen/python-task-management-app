@@ -7,3 +7,4 @@ python_jose==3.5.0
 SQLAlchemy==2.1.4
 psycopg2==2.9.12
 uvicorn==0.40.0
+psycopg[binary]
