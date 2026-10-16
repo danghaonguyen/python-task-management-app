@@ -5,6 +5,5 @@ pydantic==2.14.1
 pydantic_settings==2.16.0
 python_jose==3.5.0
 SQLAlchemy==2.1.4
-psycopg2==2.9.12
 uvicorn==0.40.0
 psycopg[binary]
