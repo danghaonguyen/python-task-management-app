@@ -8,7 +8,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "https://python-task-management-76rzrnsew-hao-nguyens-projects-3928f132.vercel.app"],
+    allow_origins=["http://localhost:5173", "https://python-task-management-5y2apv33r-hao-nguyens-projects-3928f132.vercel.app"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
