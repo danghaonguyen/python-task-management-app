@@ -376,5 +376,8 @@ Possible improvements for future versions:
 ## Author
 
 **Nguyen Dang Hao**
+# Account
+User - email: user1 | password: password2503
+Admin - email: haonguyen@gmail.com | password: 250303
 
 This project was created as a personal learning and portfolio project.
