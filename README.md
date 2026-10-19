@@ -377,7 +377,7 @@ Possible improvements for future versions:
 
 **Nguyen Dang Hao**
 # Account
-User - email: user1 | password: password2503
-Admin - email: haonguyen@gmail.com | password: 250303
+User - email: user@example.com | password: password2503
+Admin - email: haonguyen@gmail.com | password: 250303nguyen
 
 This project was created as a personal learning and portfolio project.
